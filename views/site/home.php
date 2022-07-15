@@ -11,6 +11,9 @@ $this->title = 'YII CRUD Application';
         <h1 style="color: #337ab7;" class="display-4">YII CRUD Application Tutorial</h1>
     </div>
 
+    <div class="row">
+    <span style="margin-bottom: 20px; "><?= Html::a('Create', ['/site/create'], ['class' => 'btn btn-primary']) ?></span>
+    </div>
     <div class="body-content">
 
         <div class="row">

@@ -66,6 +66,11 @@ class SiteController extends Controller
         return $this->render('home', ['posts' => $posts]);
     }
 
+    public function actionCreate(){
+        $post = new Posts();
+        return $this->render('create', ['post' => $post]); 
+    }
+
     /**
      * Login action.
      *
