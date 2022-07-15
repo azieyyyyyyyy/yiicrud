@@ -33,9 +33,9 @@ $this->title = 'YII CRUD Application';
             <td><?php echo $post->desc; ?></td>
             <td><?php echo $post->category; ?></td>
             <td>
-                <span><?= Html::a('View') ?></span>
-                <span><?= Html::a('Update') ?></span>
-                <span><?= Html::a('Delete') ?></span>
+                <button class='btn'><?= Html::a('View') ?></button>
+                <button class='btn'><?= Html::a('Update') ?></button>
+                <button class='btn'><?= Html::a('Delete') ?></button>
 
             </td>
             </tr>
