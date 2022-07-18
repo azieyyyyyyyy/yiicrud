@@ -9,7 +9,7 @@ $this->title = 'YII CRUD Application';
 <div class="site-index">
 
 
-    <h1>CREATE POST</h1>
+    <h1>UPDATE POST</h1>
 
     <div class="body-content">
         <?php 
@@ -42,7 +42,7 @@ $this->title = 'YII CRUD Application';
 <div class="row">
 <div class="col-lg-2">
     <div class="form-group">
-            <?= Html::submitButton('Create Post', ['class'=>'btn btn-primary']);?>
+            <?= Html::submitButton('Update Post', ['class'=>'btn btn-primary']);?>
         </div>
 </div>
         <div class = "col-lg-2">

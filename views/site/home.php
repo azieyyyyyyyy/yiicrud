@@ -6,7 +6,15 @@ use yii\helpers\html;
 $this->title = 'YII CRUD Application';
 ?>
 <div class="site-index">
-
+    <?php if(yii::$app->session->hasFlash('message')):?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <?php echo yii::$app->session->getFlash('message'); ?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    
+    <?php endif ?>
     <div class="jumbotron text-center bg-transparent">
         <h1 style="color: #337ab7;" class="display-4">YII CRUD Application Tutorial</h1>
     </div>
@@ -36,9 +44,9 @@ $this->title = 'YII CRUD Application';
             <td><?php echo $post->desc; ?></td>
             <td><?php echo $post->category; ?></td>
             <td>
-                <button class='btn'><?= Html::a('View') ?></button>
-                <button class='btn'><?= Html::a('Update') ?></button>
-                <button class='btn'><?= Html::a('Delete') ?></button>
+                <span><?= Html::a('View', ['view', 'id' => $post->id], ['class' => 'btn btn-primary']) ?></span>
+                <span><?= Html::a('Update', ['update', 'id' => $post->id], ['class' => 'btn btn-secondary']) ?></span>
+                <span><?= Html::a('Delete', ['delete', 'id' => $post->id], ['class' => 'btn btn-danger']) ?></span>
 
             </td>
             </tr>

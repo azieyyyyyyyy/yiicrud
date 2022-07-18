@@ -6,12 +6,12 @@
     class Posts extends ActiveRecord
     {
         private $title;
-        private $description;
+        private $desc;
         private $category;
 
         public function rules(){
             return[
-                [['title', 'description', 'category'], 'required']
+                [['title', 'desc', 'category'], 'required']
 
             ];
         }

@@ -68,9 +68,43 @@ class SiteController extends Controller
 
     public function actionCreate(){
         $post = new Posts();
+        $formData = Yii::$app->request->post();
+        if($post->load($formData)){
+            if($post->save()){
+                Yii::$app->getSession()->setFlash('message', 'Post Published Successfully');
+                return $this->redirect(['index']);
+            }
+            else{
+                Yii::$app->getSession()->setFlash('message', 'Failed to Post');
+            }
+        }
         return $this->render('create', ['post' => $post]); 
     }
+    public function actionView($id){
+        $post = Posts::findOne($id);
+        
+        return $this->render('view', ['post' => $post]);
+    }
 
+    public function actionUpdate($id){
+        $post = Posts::findOne($id);
+        if($post->load(Yii::$app->request->post()) && $post->save()){
+            Yii::$app->getSession()->setFlash('message', 'Post Updated Successfully');
+            return $this->redirect(['index', 'id' => $post->id]);
+        }
+        else{
+            return $this->render('update', ['post' => $post]);
+        }
+        
+    }
+
+    public function actionDelete($id){
+        $post = Posts::findOne($id) -> delete();
+        if($post){
+            Yii::$app->getSession()->setFlash('message', 'Post Deleted Successfully');
+            return $this->redirect(['index']);
+        }
+    }
     /**
      * Login action.
      *
